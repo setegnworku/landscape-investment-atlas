@@ -1,0 +1,13 @@
+# Temporary extraction artifacts
+_extracted_*.txt
+extract_docx.py
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
