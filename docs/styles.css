@@ -1394,6 +1394,426 @@ body {
 
 .audience-item span { font-size: 1.25rem; }
 
+/* Lake Victoria Pilot Section */
+.section-pilot {
+  padding: 0;
+  background: var(--white);
+}
+
+.pilot-hero {
+  background: linear-gradient(135deg, #1a4d6d 0%, #2d6a8f 35%, #40916c 100%);
+  color: var(--white);
+  padding: 4.5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pilot-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M0 40c20-20 40-20 60 0s40 20 60 0v40H0V40z'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.pilot-hero-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.pilot-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.15);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.pilot-hero h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.pilot-tagline {
+  font-size: 1.15rem;
+  opacity: 0.92;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.pilot-hero-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem 2.5rem;
+}
+
+.pilot-stat { text-align: center; }
+
+.ps-val {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: var(--gold);
+}
+
+.ps-lbl {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pilot-body {
+  padding: 3rem 1.5rem 5rem;
+}
+
+.pilot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(27, 67, 50, 0.1);
+}
+
+.pilot-tab {
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 67, 50, 0.2);
+  background: var(--cream);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pilot-tab:hover {
+  border-color: var(--water);
+  color: var(--water);
+}
+
+.pilot-tab.active {
+  background: linear-gradient(135deg, #1a4d6d, #2d6a8f);
+  color: var(--white);
+  border-color: transparent;
+}
+
+.pilot-panels { max-width: 960px; margin: 0 auto; }
+
+.pilot-panel {
+  display: none;
+  animation: pilotFade 0.35s ease;
+}
+
+.pilot-panel.active { display: block; }
+
+@keyframes pilotFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pilot-panel-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--forest);
+  margin-bottom: 1.5rem;
+}
+
+.pilot-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.pilot-card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(27, 67, 50, 0.06);
+}
+
+.pilot-card h3, .pilot-card h4 {
+  font-family: var(--font-serif);
+  color: var(--forest);
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.pilot-card p, .pilot-card li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.pilot-card-accent {
+  background: linear-gradient(135deg, rgba(26, 77, 109, 0.08), rgba(64, 145, 108, 0.08));
+  border-left: 4px solid var(--water);
+}
+
+.pilot-list {
+  list-style: none;
+  padding: 0;
+}
+
+.pilot-list li {
+  padding: 0.4rem 0 0.4rem 1.25rem;
+  position: relative;
+}
+
+.pilot-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--water);
+  font-weight: 700;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.pf-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sage);
+  margin-bottom: 0.25rem;
+}
+
+.pf-value {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.pilot-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--water);
+  border-left: 3px solid var(--gold);
+  padding-left: 1.25rem;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.pilot-asset-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pa-card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 1.15rem;
+  border-top: 3px solid var(--water);
+}
+
+.pa-type {
+  display: block;
+  font-weight: 700;
+  color: var(--water);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.pa-card p {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.pa-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.pilot-table { min-width: 100%; }
+
+.pilot-note {
+  font-size: 1rem;
+  color: var(--ink-muted);
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--cream);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.pilot-evidence {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(69, 123, 157, 0.08);
+  border-radius: var(--radius);
+}
+
+.pilot-evidence h4 {
+  color: var(--water);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.pilot-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pt-phase {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.15rem 1.25rem;
+  background: var(--cream);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--sage);
+}
+
+.pt-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--water);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.pt-phase p {
+  font-size: 0.98rem;
+  color: var(--ink-muted);
+  margin-top: 0.35rem;
+  line-height: 1.55;
+}
+
+.investor-fit-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.ifr-label {
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-right: 0.5rem;
+}
+
+.pilot-returns {
+  margin-top: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.roadmap-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.rm-step {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--cream);
+  border-radius: var(--radius);
+  align-items: center;
+}
+
+.rm-when {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--water);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.rm-what {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.pilot-team h4 {
+  font-family: var(--font-serif);
+  color: var(--forest);
+  margin-bottom: 1rem;
+}
+
+.team-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.team-chip {
+  font-size: 0.9rem;
+  padding: 0.45rem 0.9rem;
+  background: var(--cream);
+  border: 1px solid rgba(27, 67, 50, 0.12);
+  border-radius: 8px;
+  color: var(--ink);
+}
+
+.pilot-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pilot-cta .btn-primary {
+  background: linear-gradient(135deg, #1a4d6d, #2d6a8f);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(26, 77, 109, 0.35);
+}
+
+.landscape-card.lc-pilot {
+  border: 2px solid var(--water);
+  position: relative;
+}
+
+.landscape-card.lc-pilot::after {
+  content: 'Pilot case';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--water);
+  color: var(--white);
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+}
+
 /* Footer */
 .footer {
   background: var(--ink);
@@ -1555,6 +1975,8 @@ body {
   .panel-metrics {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .pilot-asset-cards { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 600px) {
@@ -1645,4 +2067,13 @@ body {
     font-size: 1.25rem;
     padding-left: 1.25rem;
   }
+
+  .pilot-hero-stats { gap: 1.25rem; }
+  .pilot-grid-2 { grid-template-columns: 1fr; }
+  .profile-grid { grid-template-columns: 1fr; }
+  .pilot-asset-cards { grid-template-columns: repeat(2, 1fr); }
+  .pilot-returns { grid-template-columns: repeat(2, 1fr); }
+  .rm-step { grid-template-columns: 1fr; gap: 0.35rem; }
+  .pilot-nav { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 1rem; -webkit-overflow-scrolling: touch; }
+  .pilot-tab { flex-shrink: 0; font-size: 0.9rem; }
 }

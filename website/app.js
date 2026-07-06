@@ -304,7 +304,7 @@ function renderLandscapes(filter = "all") {
     .map((l) => {
       const fit = getFitScore(l);
       return `
-    <article class="landscape-card" data-name="${l.name}" role="button" tabindex="0">
+    <article class="landscape-card${l.name === "Lake Victoria Basin" ? " lc-pilot" : ""}" data-name="${l.name}" role="button" tabindex="0">
       <div class="lc-region">${l.regionLabel}</div>
       <h3 class="lc-name">${l.name}</h3>
       <p class="lc-thesis">${l.thesis}</p>
@@ -571,6 +571,34 @@ function initMDIBars() {
   });
 }
 
+function initPilotTabs() {
+  document.querySelectorAll(".pilot-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const id = tab.dataset.pilot;
+      document.querySelectorAll(".pilot-tab").forEach((t) => t.classList.remove("active"));
+      document.querySelectorAll(".pilot-panel").forEach((p) => p.classList.remove("active"));
+      tab.classList.add("active");
+      document.querySelector(`[data-panel="${id}"]`)?.classList.add("active");
+    });
+  });
+
+  document.getElementById("pilotDashboardLink")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    selectLandscape("Lake Victoria Basin");
+    activeScreen = "plan";
+    document.querySelectorAll(".sidebar-item").forEach((i) =>
+      i.classList.toggle("active", i.dataset.screen === "plan")
+    );
+    renderDashboard();
+    document.getElementById("dashboard")?.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+function openPilotCase() {
+  selectLandscape("Lake Victoria Basin");
+  document.getElementById("pilot")?.scrollIntoView({ behavior: "smooth" });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderLandscapes();
 
@@ -595,7 +623,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("landscapeGrid")?.addEventListener("click", (e) => {
     const card = e.target.closest(".landscape-card");
     if (!card) return;
-    selectLandscape(card.dataset.name);
+    const name = card.dataset.name;
+    if (name === "Lake Victoria Basin") {
+      openPilotCase();
+      return;
+    }
+    selectLandscape(name);
     activeScreen = "map";
     document.querySelectorAll(".sidebar-item").forEach((i) => i.classList.toggle("active", i.dataset.screen === "map"));
     document.getElementById("dashboard")?.scrollIntoView({ behavior: "smooth" });
@@ -612,6 +645,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderDashboard();
   initMDIBars();
+  initPilotTabs();
 
   const observer = new IntersectionObserver(
     (entries) => {
