@@ -11,3 +11,13 @@ Thumbs.db
 # Python
 __pycache__/
 *.pyc
+
+# Video pipeline
+video/node_modules/
+video/.env
+video/out/*
+!video/out/landscape_investment_atlas_elevenlabs.mp4
+
+video/package-lock.json
+
+
