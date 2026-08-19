@@ -3,25 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Good Data Starts With You — Landscape Investment Atlas</title>
+  <title>Good Data Starts With You</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
   <style>
+    :root {
+      --forest: #1b4332;
+      --gold: #d4a017;
+      --cream: #faf8f4;
+      --ink: #2d2d2d;
+      --ink-muted: #6b6b6b;
+      --radius-lg: 12px;
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
     .video-page {
       min-height: 100vh;
-      padding: 6.5rem 1.5rem 3rem;
+      padding: 3rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background:
         radial-gradient(ellipse at top, rgba(45, 106, 79, 0.12), transparent 55%),
         var(--cream);
     }
     .video-shell {
       max-width: 960px;
-      margin: 0 auto;
+      width: 100%;
     }
     .video-shell h1 {
-      font-family: var(--font-serif);
+      font-family: 'DM Serif Display', serif;
       font-size: clamp(2rem, 4vw, 2.75rem);
       color: var(--forest);
       margin-bottom: 0.5rem;
@@ -37,6 +54,29 @@
       gap: 0.75rem;
       margin-bottom: 1.25rem;
     }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid var(--forest);
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--forest);
+      color: #fff;
+      border-color: var(--forest);
+    }
+    .btn-primary:hover { background: #143728; }
+    .btn-outline {
+      background: transparent;
+      color: var(--forest);
+    }
+    .btn-outline:hover { background: var(--forest); color: #fff; }
     .video-frame {
       background: #0f1f18;
       border-radius: var(--radius-lg);
@@ -55,42 +95,33 @@
       font-size: 0.95rem;
       color: var(--ink-muted);
     }
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+    }
   </style>
 </head>
 <body>
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">◆</span>
-        <span>Landscape Investment Atlas</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="good-data-starts-with-you.html" aria-current="page">Good Data (Dairy)</a>
-      </div>
-    </div>
-  </nav>
-
   <main class="video-page">
     <div class="video-shell">
       <h1>Good Data Starts With You</h1>
       <p class="lead">
-        Good Data Starts With You (dairy). Play it here in the browser, or download the MP4 to watch offline.
+        Why the record you enter today matters. Play it here in the browser, or download the MP4 to watch offline.
       </p>
 
       <div class="video-actions">
         <button type="button" class="btn btn-primary" id="playBtn">Play</button>
         <a class="btn btn-outline" href="good_data_starts_with_you.mp4" download="good_data_starts_with_you.mp4">Download</a>
-        <a class="btn btn-outline" href="index.html">Back to site</a>
       </div>
 
       <div class="video-frame">
         <video
-          id="atlasVideo"
+          id="dairyVideo"
           controls
           playsinline
           preload="metadata"
-          poster=""
         >
           <source src="good_data_starts_with_you.mp4" type="video/mp4" />
           Your browser does not support HTML video.
@@ -103,8 +134,10 @@
     </div>
   </main>
 
+  <div class="footer">International Livestock Research Institute &middot; CGIAR</div>
+
   <script>
-    const video = document.getElementById("atlasVideo");
+    const video = document.getElementById("dairyVideo");
     const playBtn = document.getElementById("playBtn");
     playBtn.addEventListener("click", async () => {
       try {
