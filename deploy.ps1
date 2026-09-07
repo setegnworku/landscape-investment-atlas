@@ -30,7 +30,7 @@ if (-not $hasRemote) {
         --source=. --remote=origin --push
 } else {
     Write-Host "Pushing to origin..." -ForegroundColor Cyan
-    git add -A
+    git add docs/index.html docs/styles.css docs/app.js docs/Setegn_video.html docs/Setegn_video.mp4 website/ README.md
     $staged = git diff --cached --name-only
     if ($staged) { git commit -m "Update site for GitHub Pages" }
     git push -u origin main

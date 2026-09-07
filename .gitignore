@@ -2,6 +2,13 @@
 _extracted_*.txt
 extract_docx.py
 
+# Local drafts — do not publish on the public site
+*.docx
+*.pptx
+*.pdf
+Lake_Victoria_Investible_Plan_Outline.md
+inspiration-video-script-v2.md
+
 # OS / editor
 .DS_Store
 Thumbs.db

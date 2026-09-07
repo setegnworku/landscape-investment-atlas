@@ -4,9 +4,11 @@ A decision-support concept for directing investment toward multifunctional lands
 
 ## Live site
 
-After GitHub Pages is enabled, the site is published from the `docs/` folder:
+https://setegnworku.github.io/landscape-investment-atlas/
 
-`https://<your-username>.github.io/landscape-investment-atlas/`
+## Video (MP4)
+
+https://setegnworku.github.io/landscape-investment-atlas/Setegn_video.mp4
 
 ## Local preview
 
@@ -16,12 +18,6 @@ python -m http.server 8765
 ```
 
 Open http://localhost:8765
-
-## Contents
-
-- `docs/` — Interactive project website (GitHub Pages)
-- `website/` — Development copy (keep in sync with `docs/` when updating)
-- Word documents — Framework drafts and programmer dashboard specification
 
 ## Framework summary
 
