@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setegn_video — Landscape Investment Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="gate.js?v=1"></script>
+  <style>
+    .video-page {
+      min-height: 100vh;
+      padding: 6.5rem 1.5rem 3rem;
+      background:
+        radial-gradient(ellipse at top, rgba(45, 106, 79, 0.12), transparent 55%),
+        var(--cream);
+    }
+    .video-shell {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .video-shell h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+    .video-shell .lead {
+      color: var(--ink-muted);
+      margin-bottom: 1.5rem;
+      max-width: 42rem;
+    }
+    .video-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .video-frame {
+      background: #0f1f18;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .video-frame video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      background: #000;
+    }
+    .video-note {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">◆</span>
+        <span>Landscape Investment Atlas</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="Setegn_video.html" aria-current="page">Video</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="video-page">
+    <div class="video-shell">
+      <h1>Setegn_video</h1>
+      <p class="lead">
+        Landscape Investment Atlas narrated video. Play it here in the browser, or download the MP4 to watch offline.
+      </p>
+
+      <div class="video-actions">
+        <button type="button" class="btn btn-primary" id="playBtn">Play</button>
+        <a class="btn btn-outline is-disabled" href="#" aria-disabled="true" data-download-src="Setegn_video.mp4" data-download-name="Setegn_video.mp4">Download</a>
+        <a class="btn btn-outline" href="index.html">Back to site</a>
+      </div>
+
+      <div class="video-frame">
+        <video
+          id="atlasVideo"
+          controls
+          playsinline
+          preload="none"
+          data-src="Setegn_video.mp4"
+        >
+          Your browser does not support HTML video.
+        </video>
+      </div>
+
+      <p class="video-note">
+        Tip: use <strong>Play</strong> to start right away, or <strong>Download</strong> to save the file.
+      </p>
+    </div>
+  </main>
+
+  <script>
+    const video = document.getElementById("atlasVideo");
+    const playBtn = document.getElementById("playBtn");
+    playBtn.addEventListener("click", async () => {
+      try {
+        video.scrollIntoView({ behavior: "smooth", block: "center" });
+        await video.play();
+      } catch (err) {
+        video.setAttribute("controls", "controls");
+      }
+    });
+  </script>
+</body>
+</html>

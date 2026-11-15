@@ -15,7 +15,12 @@ $repoName = "landscape-investment-atlas"
 $user = gh api user -q .login
 Write-Host "Logged in as: $user" -ForegroundColor Green
 
+New-Item -ItemType Directory -Path docs -Force | Out-Null
 Copy-Item -Path website\* -Destination docs\ -Force
+# Keep the large MP4 in docs if it already exists and was not in website/
+if (-not (Test-Path "docs\Setegn_video.mp4") -and (Test-Path "video\out\Setegn_video.mp4")) {
+    Copy-Item "video\out\Setegn_video.mp4" "docs\Setegn_video.mp4" -Force
+}
 
 $hasRemote = $false
 try {
@@ -30,9 +35,9 @@ if (-not $hasRemote) {
         --source=. --remote=origin --push
 } else {
     Write-Host "Pushing to origin..." -ForegroundColor Cyan
-    git add docs/index.html docs/styles.css docs/app.js docs/Setegn_video.html docs/Setegn_video.mp4 website/ README.md
+    git add docs/index.html docs/styles.css docs/app.js docs/gate.js docs/Setegn_video.html docs/Setegn_video.mp4 website/ README.md deploy.ps1
     $staged = git diff --cached --name-only
-    if ($staged) { git commit -m "Update site for GitHub Pages" }
+    if ($staged) { git commit -m "Add site password gate and refresh GitHub Pages files" }
     git push -u origin main
 }
 
