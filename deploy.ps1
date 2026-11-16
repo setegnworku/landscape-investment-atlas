@@ -35,9 +35,9 @@ if (-not $hasRemote) {
         --source=. --remote=origin --push
 } else {
     Write-Host "Pushing to origin..." -ForegroundColor Cyan
-    git add docs/index.html docs/styles.css docs/app.js docs/gate.js docs/Setegn_video.html docs/Setegn_video.mp4 website/ README.md deploy.ps1
+    git add docs/index.html docs/styles.css docs/app.js docs/Setegn_video.html docs/Setegn_video.mp4 website/ README.md deploy.ps1
     $staged = git diff --cached --name-only
-    if ($staged) { git commit -m "Add site password gate and refresh GitHub Pages files" }
+    if ($staged) { git commit -m "Publish the public Atlas webpage and MP4" }
     git push -u origin main
 }
 
